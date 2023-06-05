@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+     <constant name="struts.i18n.encoding" value="UTF-8"/>
+     <constant name="struts.devMode" value="true" />
+     <!--Struts2中Action对象的创建交给spring完成-->
+     <constant name="struts.objectFactory" value="spring" />
+     <constant name="struts.multipart.maxSize" value="55000000"/> <!-- 文件上传大小限制 -->    
+       
+          
+	 <package name="login" namespace="/login" extends="struts-default">
+	        <action name="login_*" class="loginAction" method="{1}">
+	        	<result name="front_view">/index.jsp</result>
+	        	<result name="main_user_view">/index.jsp</result>
+	        	<result name="error">/error.jsp</result>  
+	        </action>  
+	 </package>
+	 
+         <!-- DepartmentAction配置 -->
+         <package name="Department" namespace="/Department" extends="struts-default">
+           <action name="Department_*" class="departmentAction" method="{1}">
+             <result name="input">/Department/department_add.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="front_query_view">/Department/department_frontquery_result.jsp</result>
+             <result name="front_show_view">/Department/department_frontshow.jsp</result>
+           </action>
+         </package>
+
+         <!-- DepartChargeAction配置 -->
+         <package name="DepartCharge" namespace="/DepartCharge" extends="struts-default">
+           <action name="DepartCharge_*" class="departChargeAction" method="{1}">
+             <result name="input">/DepartCharge/departCharge_add.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="front_query_view">/DepartCharge/departCharge_frontquery_result.jsp</result>
+             <result name="front_show_view">/DepartCharge/departCharge_frontshow.jsp</result>
+           </action>
+         </package>
+
+         <!-- StudentAction配置 -->
+         <package name="Student" namespace="/Student" extends="struts-default">
+           <action name="Student_*" class="studentAction" method="{1}">
+             <result name="input">/Student/student_add.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="front_query_view">/Student/student_frontquery_result.jsp</result>
+             <result name="front_show_view">/Student/student_frontshow.jsp</result>
+           </action>
+         </package>
+
+         <!-- DepartTaskAction配置 -->
+         <package name="DepartTask" namespace="/DepartTask" extends="struts-default">
+           <action name="DepartTask_*" class="departTaskAction" method="{1}">
+             <result name="input">/DepartTask/departTask_add.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="front_query_view">/DepartTask/departTask_frontquery_result.jsp</result>
+             <result name="front_show_view">/DepartTask/departTask_frontshow.jsp</result>
+           </action>
+         </package>
+
+         <!-- JournalAction配置 -->
+         <package name="Journal" namespace="/Journal" extends="struts-default">
+           <action name="Journal_*" class="journalAction" method="{1}">
+             <result name="input">/Journal/journal_add.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="front_query_view">/Journal/journal_frontquery_result.jsp</result>
+             <result name="front_show_view">/Journal/journal_frontshow.jsp</result>
+           </action>
+         </package>
+
+         <!-- StudentTaskAction配置 -->
+         <package name="StudentTask" namespace="/StudentTask" extends="struts-default">
+           <action name="StudentTask_*" class="studentTaskAction" method="{1}">
+             <result name="input">/StudentTask/studentTask_add.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="front_query_view">/StudentTask/studentTask_frontquery_result.jsp</result>
+             <result name="front_show_view">/StudentTask/studentTask_frontshow.jsp</result>
+           </action>
+         </package>
+
+         <!-- EmpProgressAction配置 -->
+         <package name="EmpProgress" namespace="/EmpProgress" extends="struts-default">
+           <action name="EmpProgress_*" class="empProgressAction" method="{1}">
+             <result name="input">/EmpProgress/empProgress_add.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="front_query_view">/EmpProgress/empProgress_frontquery_result.jsp</result>
+             <result name="front_show_view">/EmpProgress/empProgress_frontshow.jsp</result>
+           </action>
+         </package>
+
+         <!-- NewsAction配置 -->
+         <package name="News" namespace="/News" extends="struts-default">
+           <action name="News_*" class="newsAction" method="{1}">
+             <result name="input">/News/news_add.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="front_query_view">/News/news_frontquery_result.jsp</result>
+             <result name="front_show_view">/News/news_frontshow.jsp</result>
+           </action>
+         </package>
+
+
+	 
+	 
+ 	
+	<!-- NavAction配置 -->
+         <package name="Nav" namespace="/Nav" extends="struts-default">
+           <action name="Nav_*" class="navAction" method="{1}">
+             
+           </action>
+         </package>
+
+ 	 <package name="password" namespace="/password" extends="struts-default">
+	        <action name="ChangePassword" class="changePasswordAction">  
+	        	<result name="change_success">/message.jsp</result>
+	        	<result name="error">/error.jsp</result> 
+	        </action>  
+	 </package> 
+	  
+	 <package name="User" namespace="/User" extends="struts-default">
+	        <action name="User_*" class="com.chengxusheji.action.UserAction" method="{1}">  
+	        	<result name="user_query_view">/user_query_result.jsp</result>
+	        	<result name="success">/message.jsp</result>
+	        	<result name="error">/error.jsp</result> 
+	        </action>  
+	 </package>  
+	 
+</struts>

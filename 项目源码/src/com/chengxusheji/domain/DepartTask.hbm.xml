@@ -1,0 +1,69 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.chengxusheji.domain">
+
+	<class name="DepartTask" table="t_DepartTask">
+
+          <!-- 主键作业id -->
+          <id name="taskId" column="taskId">
+            <generator class="native"/>
+          </id>
+
+          <!-- 多对一属性: 作业班级 -->
+          <many-to-one name="departmentObj"
+            column="departmentObj"
+            class="Department"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 简单字符串属性: 作业标题 -->
+          <property
+            name="title"
+            column="title"
+            type="string"
+            length="60"
+          />
+
+          <!-- 简单字符串属性: 作业内容 -->
+          <property
+            name="content"
+            column="content"
+            type="string"
+            length="2000"
+          />
+
+          <!-- 简单日期型属性: 发布日期 -->
+          <property
+            name="publishDate"
+            column="publishDate"
+            	type="string"
+            	length="20"
+          />
+
+          <!-- 简单字符串属性: 执行状态 -->
+          <property
+            name="executeState"
+            column="executeState"
+            type="string"
+            length="20"
+          />
+
+          <!-- 简单字符串属性: 进度评价 -->
+          <property
+            name="evaluate"
+            column="evaluate"
+            type="string"
+            length="200"
+          />
+
+
+		 
+		
+	</class>
+	
+</hibernate-mapping>
+ 

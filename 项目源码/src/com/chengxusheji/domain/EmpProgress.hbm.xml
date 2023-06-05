@@ -1,0 +1,70 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.chengxusheji.domain">
+
+	<class name="EmpProgress" table="t_EmpProgress">
+
+          <!-- 主键进度id -->
+          <id name="progressId" column="progressId">
+            <generator class="native"/>
+          </id>
+
+          <!-- 多对一属性: 所在作业 -->
+          <many-to-one name="taskObj"
+            column="taskObj"
+            class="StudentTask"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 简单图片属性: 上传进度文件 -->
+          <property
+            name="progressFile"
+            column="progressFile"
+            type="string"
+            length="50"
+          />
+
+          <!-- 多对一属性: 上传的学生 -->
+          <many-to-one name="studentObj"
+            column="studentObj"
+            class="Student"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 简单字符串属性: 上传时间 -->
+          <property
+            name="addTime"
+            column="addTime"
+            type="string"
+            length="20"
+          />
+
+          <!-- 简单字符串属性: 评价 -->
+          <property
+            name="evaluate"
+            column="evaluate"
+            type="string"
+            length="20"
+          />
+
+          <!-- 简单字符串属性: 评语 -->
+          <property
+            name="evalateContent"
+            column="evalateContent"
+            type="string"
+            length="60"
+          />
+
+
+		 
+		
+	</class>
+	
+</hibernate-mapping>
+ 

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.chengxusheji.domain">
+
+	<class name="Journal" table="t_Journal">
+
+          <!-- 主键日志id -->
+          <id name="journalId" column="journalId">
+            <generator class="native"/>
+          </id>
+
+          <!-- 简单字符串属性: 日志标题 -->
+          <property
+            name="title"
+            column="title"
+            type="string"
+            length="60"
+          />
+
+          <!-- 简单字符串属性: 日志内容 -->
+          <property
+            name="content"
+            column="content"
+            type="string"
+            length="2000"
+          />
+
+          <!-- 简单日期型属性: 日志日期 -->
+          <property
+            name="journalDate"
+            column="journalDate"
+            	type="string"
+            	length="20"
+          />
+
+          <!-- 多对一属性: 学生 -->
+          <many-to-one name="studentObj"
+            column="studentObj"
+            class="Student"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+
+		 
+		
+	</class>
+	
+</hibernate-mapping>
+ 
